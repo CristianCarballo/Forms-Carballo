@@ -1,0 +1,13 @@
+main {
+   min-height: 100vh;
+   background: rgb(252,182,75);
+   background: linear-gradient(90deg, rgba(252,182,75,1) 0%,
+               rgba(255,115,115,1) 28%,
+               rgba(255,158,220,1) 81%,
+               rgba(252,235,69,1) 100%);
+}
+
+.error {
+   border-width: 3px;
+   border-color: red;
+}

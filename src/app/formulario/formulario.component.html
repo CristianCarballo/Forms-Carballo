@@ -1,0 +1,68 @@
+<main>
+   <div class="container">
+      <div class="card">
+         <div class="card-body">
+            <h3 class="card-title mb-3">Formularios reactivos</h3>
+            <form class="row g-3" [formGroup]="formulario" (ngSubmit)="submit()">
+
+               <div class="col-6">
+                  <label class="form-label" for="nombre">Nombre</label>
+                  <input class="form-control" type="text" [formControl]="nombreControl"
+                  [ngClass]="nombreControl.invalid && nombreControl.dirty ? 'error' : '' "/>
+                  <small class="text-danger" *ngIf="nombreControl?.invalid && nombreControl?.dirty">
+                     El campo es obligatorio
+                  </small>
+               </div>
+
+               <div class="col-6">
+                  <label class="form-label" for="apellido">Apellido</label>
+                  <input class="form-control" type="text" [formControl]="apellidoControl" 
+                  [ngClass]="apellidoControl.invalid && apellidoControl.dirty ? 'error' : '' "/>
+                  <small class="text-danger" *ngIf="apellidoControl?.invalid && apellidoControl?.dirty">
+                     El campo es obligatorio
+                  </small>
+               </div>
+
+               <div class="col-12">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-control" type="email" [formControl]="emailControl" 
+                  [ngClass]="emailControl.invalid && emailControl.dirty ? 'error' : '' "/>
+                  <small class="text-danger" *ngIf="emailControl?.invalid && emailControl.dirty">
+                     Debe ser un email valido
+                  </small>
+               </div>
+
+               <div class="col-6">
+                  <label class="form-label" for="contrasena">Contraseña</label>
+                   <input class="form-control" type="password" [formControl]="contrasenaControl"
+                   [ngClass]="contrasenaControl.invalid && contrasenaControl.dirty ? 'error' : '' "/>
+                   <small class="text-danger" *ngIf="contrasenaControl?.invalid && contrasenaControl?.dirty">
+                     El campo es obligatorio, debe tener al menos 6 caracteres
+                  </small>
+               </div>
+
+               <div class="col-6">
+                  <label class="form-label" for="nacionalidad">Nacionalidad</label>
+                  <select class="form-select">
+                     <option value='' >Selecciona un país</option>
+                     <option value='Argentina' >Argentina</option>
+                     <option value='Brasil' >Brasil</option>
+                  </select>
+               </div>
+
+               <div class="col-12">
+                  <input class="form-check-input" type="checkbox" [formControl]="terminosControl" />
+                  <label class="form-check-label" for="terminos">Acepto términos y condiciones</label>
+               </div>
+
+               <div class="col-6">
+                  <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">
+                     Enviar formulario
+                  </button>
+               </div>
+               
+            </form>
+         </div>
+      </div>
+   </div>
+</main>
